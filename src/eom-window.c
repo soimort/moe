@@ -894,7 +894,12 @@ eom_window_display_image (EomWindow *window, EomImage *image)
 
 	eom_scroll_view_set_image (EOM_SCROLL_VIEW (priv->view), image);
 
-	gtk_window_set_title (GTK_WINDOW (window), eom_image_get_caption (image));
+	gchar *file_uri;
+	gchar *title;
+	file_uri = eom_image_get_uri_for_display (image);
+	title = g_strdup_printf("%s - %s - %s", eom_image_get_caption (image), file_uri, "moe");
+	gtk_window_set_title (GTK_WINDOW (window), title);
+	// gtk_window_set_title (GTK_WINDOW (window), eom_image_get_caption (image));
 
 	update_status_bar (window);
 
