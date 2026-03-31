@@ -9,7 +9,7 @@ $ ./autogen.sh
 $ ./configure \
     --prefix=/usr \
     --localstatedir=/var \
-    --with-librsvg \
+    --with-librsvg
 $ make
 $ src/eom -n
 ```
